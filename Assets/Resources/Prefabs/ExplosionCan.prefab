@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6584546665681333102}
   - component: {fileID: 3662725828729873709}
   m_Layer: 0
-  m_Name: Can (2)
+  m_Name: ExplosionCan
   m_TagString: Can
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,3 +139,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6050361ba45af44895c47c3934f1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 5
+  force: 70

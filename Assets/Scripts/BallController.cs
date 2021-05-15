@@ -43,6 +43,8 @@ public class BallController : MonoBehaviour
         Movement();
 
         // ThrowBall_Test();
+        drag = GameManager.instance.drag;
+        angularDrag = GameManager.instance.angularDrag;
 
         rb.drag = rb.velocity.magnitude * drag;
         rb.angularDrag = rb.velocity.magnitude * angularDrag;
@@ -73,7 +75,7 @@ public class BallController : MonoBehaviour
             {
                 rb.velocity = velocity;
                 rb.angularVelocity = angularVelocity;
-                rb.AddForce(Vector3.Cross(rb.velocity, rb.angularVelocity));
+                rb.AddForce(Vector3.Cross(rb.velocity, rb.angularVelocity) * Time.deltaTime);
                 // rb.AddForce(rb.velocity);
                 // rb.AddForce(rb.angularVelocity);
                 isMove = true;

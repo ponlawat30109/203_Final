@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ballPref;
     private GameObject playerBall;
 
+    public float drag;
+    public float angularDrag;
+
 
     private void Awake()
     {
@@ -59,18 +62,22 @@ public class GameManager : MonoBehaviour
     {
         if (BallController.instance.isDestroy == true)
         {
-            Debug.Log("true");
+            // Debug.Log("true");
 
-            // SpawnBall();
             StartCoroutine(DelaySpawn());
-            BallController.instance.isDestroy = false;
+            // MoveCamera.instance.ResetPos();
         }
     }
 
     IEnumerator DelaySpawn()
     {
         yield return new WaitForSeconds(1f);
-        MoveCamera.instance.ResetPos();
-        SpawnBall();
+        // MoveCamera.instance.ResetPos();
+        if (BallController.instance.isDestroy == true)
+        {
+            SpawnBall();
+            MoveCamera.instance.ResetPos();
+            BallController.instance.isDestroy = false;
+        }
     }
 }
